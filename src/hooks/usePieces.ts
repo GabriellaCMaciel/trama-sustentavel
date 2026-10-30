@@ -28,6 +28,7 @@ export function usePieces() {
     const piece: Piece = { ...input, id: crypto.randomUUID(), createdAt: Date.now() }
     await savePiece(piece)
     setPieces((current) => [piece, ...current])
+    return piece.id
   }, [])
 
   const removePiece = useCallback(async (id: string) => {

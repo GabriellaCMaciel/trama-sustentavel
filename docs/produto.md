@@ -63,6 +63,10 @@ Tema escuro que combina duas paletas de referência. Os contrastes de texto fora
 | Wine | `#8F2948` | 2 | Ainda sem uso; reservada para destaques |
 | Espresso | `#2A1018` | 2 | Fundo da página e campos |
 
+**Tipografia:** Bodoni Moda nos títulos (referência de revista de moda) e Instrument Sans no texto. As duas fontes são instaladas pelo npm e servidas junto com o site, sem depender do Google Fonts.
+
+**Elemento marcante:** cada peça aparece como uma etiqueta de roupa clara, com furo e contorno dourado. Quando uma peça é adicionada, a etiqueta entra com um leve balanço; o movimento é desligado para quem configurou o sistema para reduzir animações.
+
 ## Privacidade
 
 Foto de rosto e de corpo é informação pessoal delicada. Medidas propostas: consentimento claro, processar no aparelho, apagar a foto depois da análise e guardar só o resultado, não usar as fotos para treinar modelos e permitir apagar tudo. Antes de lançar para o público, vale uma revisão com um profissional de direito (LGPD).

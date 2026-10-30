@@ -20,6 +20,7 @@ Em desenvolvimento. Primeira funcionalidade: cadastro de peças do guarda-roupa.
 - React 19 + TypeScript
 - Vite
 - Oxlint
+- Fontes Bodoni Moda e Instrument Sans (via Fontsource)
 - Armazenamento local no navegador (IndexedDB), sem servidor
 
 ## Como rodar

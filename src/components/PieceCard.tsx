@@ -1,13 +1,15 @@
 import { useObjectUrl } from '../hooks/useObjectUrl'
 import { categoryLabel, occasionLabel } from '../types'
 import type { Piece } from '../types'
+import { CloseIcon } from './Icons'
 
 interface PieceCardProps {
   piece: Piece
+  isNew: boolean
   onRemove: (id: string) => void
 }
 
-export function PieceCard({ piece, onRemove }: PieceCardProps) {
+export function PieceCard({ piece, isNew, onRemove }: PieceCardProps) {
   const photoUrl = useObjectUrl(piece.photo)
 
   function handleRemove() {
@@ -17,11 +19,23 @@ export function PieceCard({ piece, onRemove }: PieceCardProps) {
   }
 
   return (
-    <article className="piece-card">
+    <article className={`piece-card${isNew ? ' is-new' : ''}`}>
       <div className="piece-photo">
         {photoUrl && <img src={photoUrl} alt={`Foto de ${piece.name}`} />}
+        <button
+          type="button"
+          className="remove-button"
+          onClick={handleRemove}
+          aria-label={`Remover ${piece.name}`}
+          title="Remover"
+        >
+          <CloseIcon className="remove-icon" />
+        </button>
       </div>
-      <div className="piece-info">
+
+      {/* A parte de baixo imita a etiqueta de uma roupa. */}
+      <div className="piece-tag">
+        <span className="tag-hole" aria-hidden="true" />
         <h3>{piece.name}</h3>
         <p className="piece-meta">
           <span className="color-dot" style={{ backgroundColor: piece.color }} aria-hidden="true" />
@@ -34,14 +48,6 @@ export function PieceCard({ piece, onRemove }: PieceCardProps) {
             ))}
           </ul>
         )}
-        <button
-          type="button"
-          className="link-danger"
-          onClick={handleRemove}
-          aria-label={`Remover ${piece.name}`}
-        >
-          Remover
-        </button>
       </div>
     </article>
   )

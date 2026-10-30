@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
-import { useObjectUrl } from '../hooks/useObjectUrl'
 import { prepareImage } from '../lib/image'
 import { CATEGORIES, OCCASIONS } from '../types'
 import type { Category, NewPiece, Occasion } from '../types'
+import { PhotoPicker } from './PhotoPicker'
 
 interface PieceFormProps {
-  onAdd: (piece: NewPiece) => Promise<void>
+  onAdd: (piece: NewPiece) => Promise<unknown>
 }
 
 export function PieceForm({ onAdd }: PieceFormProps) {
@@ -18,7 +18,6 @@ export function PieceForm({ onAdd }: PieceFormProps) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const fileInput = useRef<HTMLInputElement>(null)
-  const preview = useObjectUrl(file)
 
   function toggleOccasion(value: Occasion) {
     setOccasions((current) =>
@@ -64,21 +63,20 @@ export function PieceForm({ onAdd }: PieceFormProps) {
   return (
     <form className="piece-form" onSubmit={handleSubmit} noValidate>
       <div className="field">
-        <label htmlFor="piece-photo">Foto da peça</label>
-        <input
-          id="piece-photo"
-          ref={fileInput}
-          type="file"
-          accept="image/*"
-          onChange={(event) => setFile(event.target.files?.[0] ?? null)}
-        />
-        {preview && <img className="form-preview" src={preview} alt="Prévia da foto escolhida" />}
+        {/* O campo de arquivo usa este texto como nome acessível (aria-labelledby). */}
+        <span className="field-label" id="piece-photo-label">
+          Foto da peça
+        </span>
+        <PhotoPicker id="piece-photo" file={file} inputRef={fileInput} onChange={setFile} />
       </div>
 
       <div className="field">
-        <label htmlFor="piece-name">Nome</label>
+        <label className="field-label" htmlFor="piece-name">
+          Nome
+        </label>
         <input
           id="piece-name"
+          className="input"
           type="text"
           value={name}
           maxLength={60}
@@ -89,9 +87,12 @@ export function PieceForm({ onAdd }: PieceFormProps) {
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="piece-category">Categoria</label>
+          <label className="field-label" htmlFor="piece-category">
+            Categoria
+          </label>
           <select
             id="piece-category"
+            className="input select"
             value={category}
             onChange={(event) => setCategory(event.target.value as Category)}
           >
@@ -104,27 +105,36 @@ export function PieceForm({ onAdd }: PieceFormProps) {
         </div>
 
         <div className="field">
-          <label htmlFor="piece-color">Cor principal</label>
-          <input
-            id="piece-color"
-            type="color"
-            value={color}
-            onChange={(event) => setColor(event.target.value)}
-          />
+          <label className="field-label" htmlFor="piece-color">
+            Cor principal
+          </label>
+          <span className="color-field">
+            <input
+              id="piece-color"
+              className="color-input"
+              type="color"
+              value={color}
+              onChange={(event) => setColor(event.target.value)}
+            />
+            <span className="color-hex" aria-hidden="true">
+              {color.toUpperCase()}
+            </span>
+          </span>
         </div>
       </div>
 
       <fieldset className="field">
-        <legend>Ocasiões</legend>
-        <div className="checks">
+        <legend className="field-label">Ocasiões</legend>
+        <div className="pills">
           {OCCASIONS.map((item) => (
-            <label key={item.value} className="check">
+            <label key={item.value} className="pill">
               <input
+                className="visually-hidden"
                 type="checkbox"
                 checked={occasions.includes(item.value)}
                 onChange={() => toggleOccasion(item.value)}
               />
-              {item.label}
+              <span>{item.label}</span>
             </label>
           ))}
         </div>
