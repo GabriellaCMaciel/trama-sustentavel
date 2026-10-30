@@ -59,8 +59,8 @@ Tema escuro que combina duas paletas de referência. Os contrastes de texto fora
 | Twilight Blue | `#2F3E5B` | 1 | Etiquetas de ocasião |
 | Champagne | `#F2E4D0` | 2 | Texto das etiquetas |
 | Antique Gold | `#C6A15B` | 2 | Título, botão principal e caixas de seleção |
-| Burgundy | `#6E1734` | 2 | Base do degradê do fundo |
-| Wine | `#8F2948` | 2 | Brilho no topo da página |
+| Burgundy | `#6E1734` | 2 | Ainda sem uso; reservada para destaques |
+| Wine | `#8F2948` | 2 | Ainda sem uso; reservada para destaques |
 | Espresso | `#2A1018` | 2 | Fundo da página e campos |
 
 ## Privacidade
