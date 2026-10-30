@@ -1,32 +1,45 @@
-# React + TypeScript + Vite
+# Trama Sustentável
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Site que ajuda a pessoa a se vestir bem com o que já tem no guarda-roupa e a comprar só o que realmente multiplica seus looks. O nome é provisório.
 
-Currently, two official plugins are available:
+## A ideia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- A pessoa cadastra fotos das suas roupas, acessórios e calçados.
+- Informa o contraste do rosto (foto bem iluminada) e o formato do corpo, com guias.
+- O sistema gera looks com as peças que ela tem e aponta as lacunas de um guarda-roupa cápsula.
+- O objetivo é economizar e reduzir o desperdício têxtil, com muito estilo.
 
-## React Compiler
+Detalhes de visão, escopo do MVP e decisões técnicas estão em [`docs/produto.md`](docs/produto.md).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Status
 
-## Expanding the Oxlint configuration
+Em desenvolvimento. Primeira funcionalidade: cadastro de peças do guarda-roupa.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Tecnologias
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- React 19 + TypeScript
+- Vite
+- Oxlint
+- Fontes Bodoni Moda e Instrument Sans (via Fontsource)
+- Armazenamento local no navegador (IndexedDB), sem servidor
+
+## Como rodar
+
+Requisitos: Node.js 22 ou superior.
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Outros comandos:
+
+```bash
+npm run build    # verifica os tipos e gera a versão de produção
+npm run lint     # roda o Oxlint
+npm run preview  # abre a versão de produção localmente
+```
+
+## Privacidade
+
+As fotos ficam no aparelho da pessoa. Nada é enviado a um servidor nesta primeira versão.
