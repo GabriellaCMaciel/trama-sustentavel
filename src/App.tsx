@@ -1,86 +1,19 @@
-import { useEffect, useState } from 'react'
-import { HangerIcon } from './components/Icons'
-import { PieceCard } from './components/PieceCard'
-import { PieceForm } from './components/PieceForm'
-import { usePieces } from './hooks/usePieces'
-import type { NewPiece } from './types'
+import { SiteHeader } from './components/SiteHeader'
+import { useHashRoute } from './hooks/useHashRoute'
+import { HomePage } from './pages/HomePage'
+import { WardrobePage } from './pages/WardrobePage'
 import './App.css'
 
 export default function App() {
-  const { pieces, loading, error, addPiece, removePiece } = usePieces()
-  const [removeError, setRemoveError] = useState<string | null>(null)
-  const [notice, setNotice] = useState<string | null>(null)
-  const [newestId, setNewestId] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!notice) return
-    const timer = window.setTimeout(() => setNotice(null), 3200)
-    return () => window.clearTimeout(timer)
-  }, [notice])
-
-  async function handleAdd(input: NewPiece) {
-    const id = await addPiece(input)
-    setNewestId(id)
-    setNotice(`"${input.name}" foi adicionada ao guarda-roupa.`)
-  }
-
-  async function handleRemove(id: string) {
-    setRemoveError(null)
-    try {
-      await removePiece(id)
-    } catch {
-      setRemoveError('Não foi possível remover a peça. Tente de novo.')
-    }
-  }
+  const route = useHashRoute()
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <HangerIcon className="brand-mark" />
-        <h1>Trama Sustentável</h1>
-        <p className="tagline">Vista-se bem com o que você já tem.</p>
-      </header>
-
-      <main className="layout">
-        <section className="panel" aria-labelledby="add-title">
-          <h2 id="add-title">Adicionar peça</h2>
-          <PieceForm onAdd={handleAdd} />
-        </section>
-
-        <section className="closet" aria-labelledby="closet-title">
-          <div className="closet-heading">
-            <h2 id="closet-title">Meu guarda-roupa</h2>
-            <span className="count">{pieces.length === 1 ? '1 peça' : `${pieces.length} peças`}</span>
-          </div>
-
-          {error && <p className="form-error" role="alert">{error}</p>}
-          {removeError && <p className="form-error" role="alert">{removeError}</p>}
-
-          {loading ? (
-            <p className="muted">Carregando…</p>
-          ) : pieces.length === 0 ? (
-            <div className="empty">
-              <HangerIcon className="empty-icon" />
-              <p>Seu guarda-roupa está vazio. Adicione a primeira peça no formulário.</p>
-            </div>
-          ) : (
-            <div className="piece-grid">
-              {pieces.map((piece) => (
-                <PieceCard
-                  key={piece.id}
-                  piece={piece}
-                  isNew={piece.id === newestId}
-                  onRemove={handleRemove}
-                />
-              ))}
-            </div>
-          )}
-        </section>
-      </main>
-
-      <div className="toast-region" role="status" aria-live="polite">
-        {notice && <p className="toast">{notice}</p>}
-      </div>
-    </div>
+    <>
+      <SiteHeader route={route} />
+      <main className="app">{route === 'guarda-roupa' ? <WardrobePage /> : <HomePage />}</main>
+      <footer className="site-footer">
+        <p>Trama Sustentável é um projeto em desenvolvimento.</p>
+      </footer>
+    </>
   )
 }

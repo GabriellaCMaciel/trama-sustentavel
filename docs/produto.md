@@ -63,9 +63,25 @@ Tema escuro que combina duas paletas de referência. Os contrastes de texto fora
 | Wine | `#8F2948` | 2 | Ainda sem uso; reservada para destaques |
 | Espresso | `#2A1018` | 2 | Fundo da página e campos |
 
-**Tipografia:** Bodoni Moda nos títulos (referência de revista de moda) e Instrument Sans no texto. As duas fontes são instaladas pelo npm e servidas junto com o site, sem depender do Google Fonts.
+**Tipografia:** somente fontes sem serifa. Urbanist nos títulos e Instrument Sans no texto. As duas fontes são instaladas pelo npm e servidas junto com o site, sem depender do Google Fonts.
 
 **Elemento marcante:** cada peça aparece como uma etiqueta de roupa clara, com furo e contorno dourado. Quando uma peça é adicionada, a etiqueta entra com um leve balanço; o movimento é desligado para quem configurou o sistema para reduzir animações.
+
+## Estrutura do site
+
+O site tem duas páginas, com um menu fixo no topo.
+
+**1. Início:** explica o produto para quem chega pela primeira vez.
+
+- Abertura: o que o site faz, em uma frase, com botão para começar pelo guarda-roupa e um exemplo visual de etiquetas de peças.
+- Como funciona: os quatro passos do produto, em ordem (cadastrar peças, descobrir o contraste, entender o formato do corpo, receber looks e a cápsula).
+- Por que usar: economia, sustentabilidade e estilo, sem números que não tenham fonte.
+- O que já funciona: separa o que está disponível agora do que está marcado como "Em breve".
+- Privacidade: as fotos ficam no aparelho da pessoa.
+
+**2. Meu guarda-roupa:** cadastro, lista e remoção de peças.
+
+Funcionalidades que ainda não existem aparecem como "Em breve" e nunca como se já funcionassem.
 
 ## Privacidade
 

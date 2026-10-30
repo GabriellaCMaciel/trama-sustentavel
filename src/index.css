@@ -33,7 +33,7 @@
   --paper-muted: color-mix(in srgb, var(--plum-wine) 85%, var(--espresso));
 
   /* Tipografia */
-  --font-display: 'Bodoni Moda Variable', 'Bodoni 72', Didot, Georgia, serif;
+  --font-display: 'Urbanist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Instrument Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   accent-color: var(--gold);
@@ -61,12 +61,18 @@ h2,
 h3 {
   margin: 0;
   line-height: 1.15;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.015em;
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--font-display);
+}
+
+html {
+  scroll-padding-top: 88px;
 }
 
 button,
