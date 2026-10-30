@@ -1,15 +1,33 @@
 :root {
-  --bg: #0f0816;
-  --surface: #1a1026;
-  --surface-2: #241635;
-  --border: #3a2552;
-  --text: #ece6f4;
-  --muted: #a99bbd;
-  --gold: #d4af37;
-  --gold-strong: #e6c25a;
-  --purple: #7a3fb0;
-  --danger: #ef8a95;
+  /* Paleta 1 */
+  --blush-ivory: #f6e7e0;
+  --rose-clay: #c87b7e;
+  --dusty-mauve: #7a4d8c;
+  --plum-wine: #4b1f3a;
+  --twilight-blue: #2f3e5b;
 
+  /* Paleta 2 */
+  --champagne: #f2e4d0;
+  --antique-gold: #c6a15b;
+  --burgundy: #6e1734;
+  --wine: #8f2948;
+  --espresso: #2a1018;
+
+  /* Uso das cores no site */
+  --bg: var(--espresso);
+  --surface: color-mix(in srgb, var(--plum-wine) 70%, var(--espresso));
+  --surface-2: var(--espresso);
+  --border: color-mix(in srgb, var(--dusty-mauve) 50%, var(--plum-wine));
+  --field-border: color-mix(in srgb, var(--dusty-mauve) 60%, var(--rose-clay));
+  --text: var(--blush-ivory);
+  --muted: color-mix(in srgb, var(--blush-ivory) 72%, var(--plum-wine));
+  --gold: var(--antique-gold);
+  --gold-strong: color-mix(in srgb, var(--antique-gold) 75%, var(--champagne));
+  --danger: color-mix(in srgb, var(--rose-clay) 70%, var(--blush-ivory));
+  --tag-bg: var(--twilight-blue);
+  --tag-text: var(--champagne);
+
+  accent-color: var(--gold);
   color-scheme: dark;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
@@ -24,6 +42,10 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background:
+    radial-gradient(90% 50% at 50% 0%, color-mix(in srgb, var(--wine) 38%, var(--espresso)), transparent),
+    linear-gradient(180deg, var(--espresso), color-mix(in srgb, var(--burgundy) 30%, var(--espresso)));
+  background-color: var(--bg);
 }
 
 h1,

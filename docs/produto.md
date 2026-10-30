@@ -46,6 +46,23 @@ Fica para depois:
 | Dados | Só no navegador (IndexedDB) | Sem servidor e sem conta; as fotos ficam no aparelho, o que combina com a privacidade |
 | Primeira funcionalidade | Cadastro de peças | O armário é a base de looks, cápsula e lista de compras |
 
+## Identidade visual
+
+Tema escuro que combina duas paletas de referência. Os contrastes de texto foram calculados e ficam acima de 4,5:1.
+
+| Cor | Código | Paleta | Uso no site |
+| --- | --- | --- | --- |
+| Blush Ivory | `#F6E7E0` | 1 | Texto principal |
+| Rose Clay | `#C87B7E` | 1 | Base do tom de "Remover" e das mensagens de erro |
+| Dusty Mauve | `#7A4D8C` | 1 | Bordas |
+| Plum Wine | `#4B1F3A` | 1 | Painéis e cartões |
+| Twilight Blue | `#2F3E5B` | 1 | Etiquetas de ocasião |
+| Champagne | `#F2E4D0` | 2 | Texto das etiquetas |
+| Antique Gold | `#C6A15B` | 2 | Título, botão principal e caixas de seleção |
+| Burgundy | `#6E1734` | 2 | Base do degradê do fundo |
+| Wine | `#8F2948` | 2 | Brilho no topo da página |
+| Espresso | `#2A1018` | 2 | Fundo da página e campos |
+
 ## Privacidade
 
 Foto de rosto e de corpo é informação pessoal delicada. Medidas propostas: consentimento claro, processar no aparelho, apagar a foto depois da análise e guardar só o resultado, não usar as fotos para treinar modelos e permitir apagar tudo. Antes de lançar para o público, vale uma revisão com um profissional de direito (LGPD).
