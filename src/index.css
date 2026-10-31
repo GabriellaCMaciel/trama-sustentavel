@@ -1,109 +1,149 @@
-:root {
-  /* Paleta 1 */
-  --blush-ivory: #f6e7e0;
-  --rose-clay: #c87b7e;
-  --dusty-mauve: #7a4d8c;
-  --plum-wine: #4b1f3a;
-  --twilight-blue: #2f3e5b;
+@import 'tailwindcss';
 
-  /* Paleta 2 */
-  --champagne: #f2e4d0;
-  --antique-gold: #c6a15b;
-  --burgundy: #6e1734;
-  --wine: #8f2948;
-  --espresso: #2a1018;
+/*
+ * Paleta do projeto. As cores padrão do Tailwind foram desligadas (--color-*: initial),
+ * então só estas existem. O nome sem número (ex.: bg-brick-red) é o tom 500.
+ */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
 
-  /* Uso das cores no site */
-  --bg: var(--espresso);
-  --surface: color-mix(in srgb, var(--plum-wine) 70%, var(--espresso));
-  --surface-2: var(--espresso);
-  --border: color-mix(in srgb, var(--dusty-mauve) 50%, var(--plum-wine));
-  --field-border: color-mix(in srgb, var(--dusty-mauve) 60%, var(--rose-clay));
-  --text: var(--blush-ivory);
-  --muted: color-mix(in srgb, var(--blush-ivory) 72%, var(--plum-wine));
-  --gold: var(--antique-gold);
-  --gold-strong: color-mix(in srgb, var(--antique-gold) 75%, var(--champagne));
-  --danger: color-mix(in srgb, var(--rose-clay) 70%, var(--blush-ivory));
-  --tag-bg: var(--twilight-blue);
-  --tag-text: var(--champagne);
+  --color-molten-lava: #780000;
+  --color-molten-lava-100: #180000;
+  --color-molten-lava-200: #310000;
+  --color-molten-lava-300: #490000;
+  --color-molten-lava-400: #620000;
+  --color-molten-lava-500: #780000;
+  --color-molten-lava-600: #c80000;
+  --color-molten-lava-700: #ff1616;
+  --color-molten-lava-800: #ff6464;
+  --color-molten-lava-900: #ffb1b1;
 
-  /* Etiqueta de roupa (cartão claro) */
-  --paper: var(--blush-ivory);
-  --paper-text: var(--espresso);
-  --paper-muted: color-mix(in srgb, var(--plum-wine) 85%, var(--espresso));
+  --color-brick-red: #c1121f;
+  --color-brick-red-100: #260406;
+  --color-brick-red-200: #4d070c;
+  --color-brick-red-300: #730b12;
+  --color-brick-red-400: #990e17;
+  --color-brick-red-500: #c1121f;
+  --color-brick-red-600: #eb2330;
+  --color-brick-red-700: #f05a64;
+  --color-brick-red-800: #f59198;
+  --color-brick-red-900: #fac8cb;
 
-  /* Tipografia */
+  --color-papaya-whip: #fdf0d5;
+  --color-papaya-whip-100: #593c04;
+  --color-papaya-whip-200: #b17908;
+  --color-papaya-whip-300: #f5ae22;
+  --color-papaya-whip-400: #f9cf7b;
+  --color-papaya-whip-500: #fdf0d5;
+  --color-papaya-whip-600: #fdf2dc;
+  --color-papaya-whip-700: #fef5e5;
+  --color-papaya-whip-800: #fef9ed;
+  --color-papaya-whip-900: #fffcf6;
+
+  --color-deep-space-blue: #003049;
+  --color-deep-space-blue-100: #00090e;
+  --color-deep-space-blue-200: #00131d;
+  --color-deep-space-blue-300: #001c2b;
+  --color-deep-space-blue-400: #002539;
+  --color-deep-space-blue-500: #003049;
+  --color-deep-space-blue-600: #00679f;
+  --color-deep-space-blue-700: #00a0f7;
+  --color-deep-space-blue-800: #50c2ff;
+  --color-deep-space-blue-900: #a7e0ff;
+
+  --color-steel-blue: #669bbc;
+  --color-steel-blue-100: #122028;
+  --color-steel-blue-200: #233f51;
+  --color-steel-blue-300: #355f79;
+  --color-steel-blue-400: #477fa2;
+  --color-steel-blue-500: #669bbc;
+  --color-steel-blue-600: #85afc9;
+  --color-steel-blue-700: #a4c3d7;
+  --color-steel-blue-800: #c2d7e4;
+  --color-steel-blue-900: #e1ebf2;
+
+  /* Somente fontes sem serifa. */
   --font-display: 'Urbanist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body: 'Instrument Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Instrument Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  accent-color: var(--gold);
-  color-scheme: dark;
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
+  --animate-tag-swing: tag-swing 0.9s cubic-bezier(0.3, 0.7, 0.4, 1);
+  --animate-toast-in: toast-in 0.25s ease-out;
+
+  @keyframes tag-swing {
+    0% {
+      opacity: 0;
+      transform: rotate(-6deg) translateY(-8px);
+    }
+    40% {
+      opacity: 1;
+      transform: rotate(3deg);
+    }
+    70% {
+      transform: rotate(-1.2deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
 }
 
-* {
-  box-sizing: border-box;
+@layer base {
+  html {
+    color-scheme: dark;
+    accent-color: var(--color-brick-red);
+    scroll-padding-top: 88px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-deep-space-blue-200 font-sans text-papaya-whip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-3 outline-papaya-whip-400;
+  }
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: var(--bg);
+/* Etiqueta de roupa: cantos de baixo cortados. */
+@utility clip-tag {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+/* Seta do select, já na cor do tema. */
+@utility select-chevron {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a4c3d7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-}
-
-html {
-  scroll-padding-top: 88px;
-}
-
-button,
-input,
-select {
-  font: inherit;
-}
-
-:focus-visible {
-  outline: 2px solid var(--gold-strong);
-  outline-offset: 3px;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* Amostra de cor redonda no campo de cor. */
+@utility color-swatch {
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  &::-webkit-color-swatch {
+    border: 1px solid var(--color-steel-blue-700);
+    border-radius: 9999px;
+  }
+  &::-moz-color-swatch {
+    border: 1px solid var(--color-steel-blue-700);
+    border-radius: 9999px;
   }
 }

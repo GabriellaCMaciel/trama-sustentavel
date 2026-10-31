@@ -1,0 +1,49 @@
+# Atualiza o CHANGELOG.md sempre que algo entra na main (por exemplo, quando um PR é aceito).
+name: Atualizar changelog
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: changelog
+  cancel-in-progress: false
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    # Evita rodar de novo por causa do próprio commit do changelog.
+    if: "${{ !startsWith(github.event.head_commit.message, 'docs: update changelog') }}"
+    steps:
+      - name: Baixar o repositório com todo o histórico
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Gerar o CHANGELOG.md
+        run: npm run changelog
+
+      - name: Salvar o changelog se ele mudou
+        run: |
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "O changelog já está atualizado."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog"
+          git push
