@@ -21,7 +21,18 @@ export function PieceCard({ piece, isNew, onRemove }: PieceCardProps) {
   return (
     <article className={`group flex origin-top flex-col ${isNew ? 'motion-safe:animate-tag-swing' : ''}`}>
       <div className="relative aspect-[4/5] overflow-hidden rounded-t-xl bg-deep-space-blue">
-        {photoUrl && <img className="block size-full object-cover" src={photoUrl} alt={`Foto de ${piece.name}`} />}
+        {photoUrl && (
+          <img
+            className="block size-full object-cover"
+            src={photoUrl}
+            alt={piece.sample ? `Ilustração de ${piece.name}` : `Foto de ${piece.name}`}
+          />
+        )}
+        {piece.sample && (
+          <span className="absolute top-2 left-2 rounded-full bg-deep-space-blue-200/85 px-2.5 py-0.5 text-xs font-semibold text-papaya-whip">
+            Exemplo
+          </span>
+        )}
         <button
           type="button"
           className="absolute top-2 right-2 grid size-8 cursor-pointer place-items-center rounded-full border-0 bg-deep-space-blue-200/75 p-0 text-papaya-whip opacity-0 transition hover:bg-brick-red focus-visible:opacity-100 group-hover:opacity-100 pointer-coarse:opacity-100"

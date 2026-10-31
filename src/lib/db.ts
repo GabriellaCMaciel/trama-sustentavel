@@ -70,6 +70,19 @@ export function deletePiece(id: string): Promise<void> {
   })
 }
 
+/** Salva várias peças numa transação só: ou entram todas, ou nenhuma. */
+export function savePieces(pieces: Piece[]): Promise<void> {
+  return write(PIECES, (store) => {
+    pieces.forEach((piece) => store.put(piece))
+  })
+}
+
+export function deletePieces(ids: string[]): Promise<void> {
+  return write(PIECES, (store) => {
+    ids.forEach((id) => store.delete(id))
+  })
+}
+
 async function getProfileItem<T>(key: string): Promise<T | null> {
   const value = await read<T | undefined>(PROFILE, (store) => store.get(key))
   return value ?? null
