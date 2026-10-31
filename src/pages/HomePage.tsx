@@ -22,7 +22,7 @@ const STEPS = [
   {
     title: 'Receba looks e sua cápsula',
     text: 'O site combina as peças que você tem, monta um guarda-roupa cápsula e aponta as poucas compras que mais aumentariam suas combinações.',
-    available: false,
+    available: true,
   },
 ]
 

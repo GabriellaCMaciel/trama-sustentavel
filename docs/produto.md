@@ -70,7 +70,7 @@ Contrastes calculados: texto principal 16,7:1 no fundo; texto secundário acima 
 
 ## Estrutura do site
 
-O site tem três páginas, com um menu fixo no topo.
+O site tem quatro páginas, com um menu fixo no topo.
 
 **1. Início:** explica o produto para quem chega pela primeira vez.
 
@@ -89,6 +89,13 @@ O site tem três páginas, com um menu fixo no topo.
 
 Endereços: `#/meu-perfil/contraste` e `#/meu-perfil/corpo`. O endereço antigo `#/meu-contraste` continua funcionando e abre a aba Contraste.
 
+**4. Looks:** duas abas.
+
+- **Looks:** combinações montadas com as peças do guarda-roupa, filtradas por ocasião e ordenadas pelo perfil.
+- **Cápsula:** a cápsula que já existe no guarda-roupa, as peças paradas e até 3 sugestões de compra.
+
+Endereços: `#/looks` e `#/looks/capsula`. Detalhes em [`docs/looks.md`](looks.md).
+
 Funcionalidades que ainda não existem aparecem como "Em breve" e nunca como se já funcionassem.
 
 ## Privacidade
@@ -102,11 +109,11 @@ A sustentabilidade precisa ser medida, não só declarada. Ordem de prioridade p
 ## Perguntas em aberto
 
 - Nome definitivo do produto.
-- Público: só feminino, masculino ou todas as pessoas.
+- Público: só feminino, masculino ou todas as pessoas. (Decidido na etapa 3: todas as pessoas.)
 - Plataforma: site, app ou site que funciona como app no celular.
 - Brasil e português apenas, ou outros países e idiomas.
 - Produto real, projeto de portfólio ou os dois.
 - Classificação de contraste em três níveis está boa?
-- Guia de formato do corpo: medidas, questionário ou foto.
-- Origem das sugestões de peças a comprar.
-- Limite de peças sugeridas por vez na lista de compras.
+- Guia de formato do corpo: medidas, questionário ou foto. (Decidido: medidas ou escolha de silhueta.)
+- Origem das sugestões de peças a comprar. (Decidido: só descrição, com brechó e troca primeiro.)
+- Limite de peças sugeridas por vez na lista de compras. (Decidido: 3.)

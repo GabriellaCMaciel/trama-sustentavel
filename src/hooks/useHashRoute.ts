@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
-export type Route = 'inicio' | 'guarda-roupa' | 'perfil-contraste' | 'perfil-corpo'
+export type Route = 'inicio' | 'guarda-roupa' | 'perfil-contraste' | 'perfil-corpo' | 'looks' | 'looks-capsula'
 
 export const routeHref: Record<Route, string> = {
   inicio: '#/',
   'guarda-roupa': '#/guarda-roupa',
   'perfil-contraste': '#/meu-perfil/contraste',
   'perfil-corpo': '#/meu-perfil/corpo',
+  looks: '#/looks',
+  'looks-capsula': '#/looks/capsula',
 }
 
 function readRoute(): Route {
@@ -17,7 +19,14 @@ function readRoute(): Route {
   if (hash === routeHref['perfil-contraste'] || hash === '#/meu-perfil' || hash === '#/meu-contraste') {
     return 'perfil-contraste'
   }
+  if (hash === routeHref['looks-capsula']) return 'looks-capsula'
+  if (hash === routeHref.looks) return 'looks'
   return 'inicio'
+}
+
+/** Páginas com abas: trocar de aba dentro da mesma página não leva a página para o topo. */
+function pageOf(route: Route) {
+  return route.split('-')[0]
 }
 
 /**
@@ -31,9 +40,8 @@ export function useHashRoute(): Route {
     function handleChange() {
       const next = readRoute()
       setRoute((previous) => {
-        // Trocar de aba dentro do perfil não leva a página para o topo.
-        const sameProfile = previous.startsWith('perfil') && next.startsWith('perfil')
-        if (!sameProfile) window.scrollTo({ top: 0 })
+        const samePage = (previous.startsWith('perfil') || previous.startsWith('looks')) && pageOf(previous) === pageOf(next)
+        if (!samePage) window.scrollTo({ top: 0 })
         return next
       })
     }
