@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 
-export type Route = 'inicio' | 'guarda-roupa'
+export type Route = 'inicio' | 'guarda-roupa' | 'contraste'
 
 function readRoute(): Route {
-  return window.location.hash === '#/guarda-roupa' ? 'guarda-roupa' : 'inicio'
+  if (window.location.hash === '#/guarda-roupa') return 'guarda-roupa'
+  if (window.location.hash === '#/meu-contraste') return 'contraste'
+  return 'inicio'
 }
 
 /**
@@ -28,4 +30,5 @@ export function useHashRoute(): Route {
 export const routeHref: Record<Route, string> = {
   inicio: '#/',
   'guarda-roupa': '#/guarda-roupa',
+  contraste: '#/meu-contraste',
 }

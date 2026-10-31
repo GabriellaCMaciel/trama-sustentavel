@@ -13,7 +13,7 @@ Detalhes de visão, escopo do MVP e decisões técnicas estão em [`docs/produto
 
 ## Status
 
-Em desenvolvimento. Primeira funcionalidade: cadastro de peças do guarda-roupa.
+Em desenvolvimento. Já funcionam o cadastro de peças do guarda-roupa e a descoberta do contraste pessoal (detalhes em [`docs/contraste.md`](docs/contraste.md)).
 
 ## Tecnologias
 
