@@ -66,6 +66,8 @@ Contrastes calculados: texto principal 16,7:1 no fundo; texto secundário acima 
 
 **Elemento marcante:** cada peça aparece como uma etiqueta de roupa clara, com furo e contorno vermelho. Quando uma peça é adicionada, a etiqueta entra com um leve balanço; o movimento é desligado para quem configurou o sistema para reduzir animações.
 
+**Arara da página inicial:** as três etiquetas de exemplo ficam penduradas por um fio na arara. Quando o mouse passa por uma delas (ou o dedo toca, no celular), ela balança a partir do ponto em que o fio prende na arara, para o lado em que o mouse estava indo, e o balanço perde força até parar, como um cabide empurrado de leve. As etiquetas vizinhas balançam junto, mais fraco e um pouco depois. Também é desligado para quem pede menos animação no sistema.
+
 ## Estrutura do site
 
 O site tem duas páginas, com um menu fixo no topo.

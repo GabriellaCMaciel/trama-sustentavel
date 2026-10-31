@@ -1,3 +1,5 @@
+import { HangingTags } from '../components/HangingTags'
+import type { SampleTag } from '../components/HangingTags'
 import { routeHref } from '../hooks/useHashRoute'
 import { buttonLight, buttonPrimary, buttonSecondary, sectionTitle } from '../ui'
 
@@ -40,7 +42,7 @@ const REASONS = [
 ]
 
 /** Peças de exemplo da ilustração da abertura. */
-const SAMPLE_TAGS = [
+const SAMPLE_TAGS: SampleTag[] = [
   { name: 'Camisa de linho', category: 'Parte de cima', swatch: 'bg-papaya-whip', tilt: -1.5 },
   { name: 'Calça de alfaiataria', category: 'Parte de baixo', swatch: 'bg-deep-space-blue', tilt: 1.5 },
   { name: 'Mocassim', category: 'Calçado', swatch: 'bg-brick-red', tilt: -1 },
@@ -73,25 +75,8 @@ export function HomePage() {
         </div>
 
         <figure>
-          {/* Arara com etiquetas de exemplo */}
-          <ul
-            className="grid grid-cols-3 gap-[clamp(22px,3vw,26px)] rounded-xs border-t-[3px] border-brick-red pt-8.5"
-            aria-hidden="true"
-          >
-            {SAMPLE_TAGS.map((tag) => (
-              <li key={tag.name} className="relative flex origin-top flex-col" style={{ rotate: `${tag.tilt}deg` }}>
-                <span className="absolute -top-8.5 left-1/2 h-8.5 w-[1.5px] bg-brick-red" />
-                <div className={`aspect-[3/4] rounded-t-[10px] ring-1 ring-papaya-whip/15 ring-inset ${tag.swatch}`} />
-                <div className="clip-tag relative grid gap-1.5 bg-papaya-whip px-3.5 pt-7 pb-4.5 text-deep-space-blue-200">
-                  <span className="absolute top-2.5 left-[calc(50%-4.5px)] size-2.25 rounded-full bg-deep-space-blue-200 ring-2 ring-brick-red" />
-                  <span className="font-display text-[clamp(0.8125rem,2.6vw,1rem)] leading-tight font-bold [overflow-wrap:anywhere] hyphens-auto">
-                    {tag.name}
-                  </span>
-                  <span className="text-[0.8125rem] text-deep-space-blue">{tag.category}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          {/* Arara com etiquetas de exemplo; elas balançam quando o mouse passa. */}
+          <HangingTags tags={SAMPLE_TAGS} />
           <figcaption className="mt-4 text-sm text-steel-blue-700">
             Exemplo: três peças que já estão no armário e formam um look.
           </figcaption>
