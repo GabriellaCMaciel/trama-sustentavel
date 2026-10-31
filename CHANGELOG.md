@@ -13,12 +13,17 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Visual
 
+- Migrate styles to Tailwind CSS with new colour palette ([ba67900](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/ba67900da4d6c44fdb8912d101e9139c52cd33af))
 - Use plain espresso background ([081ff63](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/081ff63605589aa1898ad51c160a913e885542d6))
 - Apply combined burgundy, gold and plum colour palette ([a8ab24f](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/a8ab24f334cb80b6cac3c531818c3068b5277ff3))
 
 ### Documentação
 
 - Add README, product vision, MVP scope and technical decisions ([ad0443c](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/ad0443c69488ffd39ea041dd1687d450bf03ccb3))
+
+### Build e automação
+
+- Generate CHANGELOG.md from commits and update it on every push to main ([1863879](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/18638796333737a87e9038fe64ef72d716584149))
 
 ### Manutenção
 
