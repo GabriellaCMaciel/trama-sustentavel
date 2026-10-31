@@ -12,7 +12,7 @@ const STEPS = [
   {
     title: 'Descubra seu contraste',
     text: 'Com uma foto do rosto em luz natural, o site indica se seu contraste é baixo, médio ou alto e quais combinações de cor valorizam você.',
-    available: false,
+    available: true,
   },
   {
     title: 'Entenda o formato do seu corpo',

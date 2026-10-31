@@ -1,7 +1,7 @@
 /** Classes do Tailwind reutilizadas em mais de um componente. */
 
 const buttonBase =
-  'inline-flex h-12.5 items-center justify-center whitespace-nowrap rounded-[10px] px-6 font-semibold no-underline transition-colors disabled:cursor-wait disabled:opacity-60'
+  'inline-flex h-12.5 cursor-pointer items-center justify-center whitespace-nowrap rounded-[10px] px-6 font-semibold no-underline transition-colors disabled:cursor-not-allowed disabled:opacity-50'
 
 /** Botão principal: vermelho com texto claro. */
 export const buttonPrimary = `${buttonBase} bg-brick-red text-papaya-whip hover:bg-brick-red-400`

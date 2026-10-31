@@ -70,7 +70,7 @@ Contrastes calculados: texto principal 16,7:1 no fundo; texto secundário acima 
 
 ## Estrutura do site
 
-O site tem duas páginas, com um menu fixo no topo.
+O site tem três páginas, com um menu fixo no topo.
 
 **1. Início:** explica o produto para quem chega pela primeira vez.
 
@@ -81,6 +81,8 @@ O site tem duas páginas, com um menu fixo no topo.
 - Privacidade: as fotos ficam no aparelho da pessoa.
 
 **2. Meu guarda-roupa:** cadastro, lista e remoção de peças.
+
+**3. Meu contraste:** a pessoa toca na pele, no cabelo e no olho da própria foto e descobre se o contraste é baixo, médio ou alto. Detalhes em [`docs/contraste.md`](contraste.md).
 
 Funcionalidades que ainda não existem aparecem como "Em breve" e nunca como se já funcionassem.
 

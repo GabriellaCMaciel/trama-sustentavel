@@ -9,6 +9,7 @@ interface SiteHeaderProps {
 const LINKS: { route: Route; label: string }[] = [
   { route: 'inicio', label: 'Início' },
   { route: 'guarda-roupa', label: 'Meu guarda-roupa' },
+  { route: 'contraste', label: 'Meu contraste' },
 ]
 
 export function SiteHeader({ route }: SiteHeaderProps) {
@@ -23,13 +24,13 @@ export function SiteHeader({ route }: SiteHeaderProps) {
           <span>Trama Sustentável</span>
         </a>
         <nav aria-label="Principal">
-          <ul className="flex gap-1">
+          <ul className="flex gap-0.5 min-[480px]:gap-1">
             {LINKS.map((link) => {
               const active = route === link.route
               return (
                 <li key={link.route}>
                   <a
-                    className={`inline-block rounded-full px-3.5 py-2 font-medium no-underline transition-colors ${
+                    className={`inline-block rounded-full px-2 py-1.5 text-sm font-medium min-[360px]:px-2.5 min-[360px]:text-[0.9375rem] whitespace-nowrap no-underline transition-colors min-[480px]:px-3.5 min-[480px]:py-2 min-[480px]:text-base ${
                       active
                         ? 'bg-papaya-whip text-deep-space-blue-200'
                         : 'text-steel-blue-700 hover:text-papaya-whip'
