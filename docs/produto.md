@@ -96,6 +96,8 @@ Endereços: `#/meu-perfil/contraste` e `#/meu-perfil/corpo`. O endereço antigo 
 
 Endereços: `#/looks` e `#/looks/capsula`. Detalhes em [`docs/looks.md`](looks.md).
 
+**Guarda-roupa de exemplo:** quem ainda não tem peças pode experimentar o site com 15 peças de exemplo ilustradas, e apagá-las depois. Detalhes em [`docs/exemplo.md`](exemplo.md).
+
 Funcionalidades que ainda não existem aparecem como "Em breve" e nunca como se já funcionassem.
 
 ## Privacidade
