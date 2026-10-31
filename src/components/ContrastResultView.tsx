@@ -214,7 +214,13 @@ export function PieceThumb({ piece }: { piece: Piece }) {
   const url = useObjectUrl(piece.photo)
   return (
     <div className="relative aspect-square flex-1 overflow-hidden rounded-lg bg-deep-space-blue-300">
-      {url && <img className="size-full object-cover" src={url} alt={`Foto de ${piece.name}`} />}
+      {url && (
+        <img
+          className="size-full object-cover"
+          src={url}
+          alt={piece.sample ? `Ilustração de ${piece.name}` : `Foto de ${piece.name}`}
+        />
+      )}
       <span
         className="absolute right-1.5 bottom-1.5 size-4 rounded-full border-2 border-papaya-whip"
         style={{ backgroundColor: piece.color }}

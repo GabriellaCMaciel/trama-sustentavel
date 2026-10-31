@@ -39,6 +39,8 @@ export interface Piece {
   occasions: Occasion[]
   /** Modelagem, opcional. Peças antigas não têm. */
   fit?: Fit
+  /** Peça do guarda-roupa de exemplo (docs/exemplo.md). */
+  sample?: boolean
   /** Foto já reduzida, guardada só neste navegador. */
   photo: Blob
   createdAt: number

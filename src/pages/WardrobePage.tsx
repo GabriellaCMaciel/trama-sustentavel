@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { HangerIcon } from '../components/Icons'
 import { PieceCard } from '../components/PieceCard'
 import { PieceForm } from '../components/PieceForm'
+import { SampleNotice, TrySampleButton } from '../components/SampleWardrobe'
 import { usePieces } from '../hooks/usePieces'
 import type { NewPiece } from '../types'
 import { sectionTitle } from '../ui'
 
 export function WardrobePage() {
-  const { pieces, loading, error, addPiece, removePiece } = usePieces()
+  const { pieces, loading, error, addPiece, removePiece, addSamples, removeSamples } = usePieces()
   const [removeError, setRemoveError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
   const [newestId, setNewestId] = useState<string | null>(null)
@@ -43,6 +44,8 @@ export function WardrobePage() {
           Cadastre as peças que você tem. Elas serão a base dos seus looks e da sua cápsula.
         </p>
       </div>
+
+      {!loading && <SampleNotice pieces={pieces} onRemove={removeSamples} />}
 
       <div className="grid items-start gap-12 min-[880px]:grid-cols-[380px_1fr]">
         <section
@@ -80,6 +83,8 @@ export function WardrobePage() {
             <div className="grid justify-items-center gap-3 rounded-2xl border-[1.5px] border-dashed border-steel-blue-300 px-6 py-14 text-center text-steel-blue-700">
               <HangerIcon className="w-18 text-steel-blue-400" />
               <p className="max-w-[32ch]">Seu guarda-roupa está vazio. Adicione a primeira peça no formulário.</p>
+              <p className="max-w-[32ch]">Ou veja como o site funciona antes de cadastrar suas roupas:</p>
+              <TrySampleButton onAdd={addSamples} className="justify-items-center text-center" />
             </div>
           ) : (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-x-5 gap-y-7 min-[880px]:grid-cols-[repeat(auto-fill,minmax(190px,1fr))]">

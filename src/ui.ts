@@ -6,6 +6,11 @@ const buttonBase =
 /** Botão principal: vermelho com texto claro. */
 export const buttonPrimary = `${buttonBase} bg-brick-red text-papaya-whip hover:bg-brick-red-400`
 
+/** Botão principal com texto longo: quebra a linha em telas estreitas em vez de passar da tela. */
+export const buttonPrimaryWrap = buttonPrimary
+  .replace('whitespace-nowrap', 'text-center')
+  .replace('h-12.5', 'min-h-12.5 py-3')
+
 /** Botão claro, para usar sobre fundos vermelhos. */
 export const buttonLight = `${buttonBase} bg-papaya-whip text-molten-lava hover:bg-papaya-whip-400`
 

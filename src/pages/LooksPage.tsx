@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { CapsuleTab } from '../components/CapsuleTab'
 import { LooksTab } from '../components/LooksTab'
+import { SampleNotice, TrySampleButton } from '../components/SampleWardrobe'
 import { TabNav } from '../components/TabNav'
 import { useBody } from '../hooks/useBody'
 import { useContrast } from '../hooks/useContrast'
@@ -9,13 +10,14 @@ import type { Route } from '../hooks/useHashRoute'
 import { usePieces } from '../hooks/usePieces'
 import { buildLooks } from '../lib/looks'
 import type { StyleProfile } from '../lib/looks'
+import { buttonSecondary } from '../ui'
 
 interface LooksPageProps {
   route: Extract<Route, 'looks' | 'looks-capsula'>
 }
 
 export function LooksPage({ route }: LooksPageProps) {
-  const { pieces, loading: loadingPieces } = usePieces()
+  const { pieces, loading: loadingPieces, addSamples, removeSamples } = usePieces()
   const contrast = useContrast()
   const body = useBody()
   const loading = loadingPieces || contrast.loading || body.loading
@@ -40,8 +42,21 @@ export function LooksPage({ route }: LooksPageProps) {
         ]}
       />
 
+      {!loading && <SampleNotice pieces={pieces} onRemove={removeSamples} />}
+
       {loading ? (
         <p className="text-steel-blue-700">Carregando…</p>
+      ) : pieces.length === 0 ? (
+        <div className="grid justify-items-start gap-6 rounded-2xl border-[1.5px] border-dashed border-steel-blue-300 p-6">
+          <p className="max-w-[60ch] text-steel-blue-800">
+            Seu guarda-roupa ainda está vazio. Cadastre suas peças para ver looks e cápsula com as suas roupas, ou
+            experimente antes com peças de exemplo.
+          </p>
+          <TrySampleButton onAdd={addSamples} />
+          <a className={buttonSecondary} href={routeHref['guarda-roupa']}>
+            Ir para o guarda-roupa
+          </a>
+        </div>
       ) : route === 'looks' ? (
         <LooksTab pieces={pieces} looks={looks} profile={profile} />
       ) : (

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
-import { deletePiece, getAllPieces, savePiece } from '../lib/db'
+import { deletePiece, deletePieces, getAllPieces, savePiece, savePieces } from '../lib/db'
+import { samplePieces } from '../lib/sampleWardrobe'
 import type { NewPiece, Piece } from '../types'
 
 export function usePieces() {
@@ -41,5 +42,26 @@ export function usePieces() {
     setPieces((current) => current.map((item) => (item.id === piece.id ? piece : item)))
   }, [])
 
-  return { pieces, loading, error, addPiece, removePiece, updatePiece }
+  /** Adiciona o guarda-roupa de exemplo (uma vez só). */
+  const addSamples = useCallback(async () => {
+    if (pieces.some((piece) => piece.sample)) return
+    const now = Date.now()
+    // Ordem de criação crescente, para a lista mostrar as peças na ordem da tabela de exemplo.
+    const created: Piece[] = samplePieces().map((input, index, all) => ({
+      ...input,
+      id: crypto.randomUUID(),
+      createdAt: now + (all.length - index),
+    }))
+    await savePieces(created)
+    setPieces((current) => [...created, ...current])
+  }, [pieces])
+
+  /** Apaga só as peças de exemplo; as peças da pessoa ficam. */
+  const removeSamples = useCallback(async () => {
+    const ids = pieces.filter((piece) => piece.sample).map((piece) => piece.id)
+    await deletePieces(ids)
+    setPieces((current) => current.filter((piece) => !piece.sample))
+  }, [pieces])
+
+  return { pieces, loading, error, addPiece, removePiece, updatePiece, addSamples, removeSamples }
 }
