@@ -20,7 +20,7 @@ Fontes: [A Well Styled Life: How to find your personal contrast level](https://a
 
 | Decisão | Escolha |
 | --- | --- |
-| Página | Nova página "Meu contraste" no menu, depois de "Meu guarda-roupa" |
+| Página | Aba "Contraste" da página "Meu perfil" (antes era a página "Meu contraste") |
 | Como achar pele, cabelo e olhos | A pessoa toca em cada ponto na própria foto (sem IA) |
 | Resultado | Nível + explicação + exemplos de combinações + peças do guarda-roupa que combinam |
 | Onde fica a foto | Só na memória do navegador enquanto a página está aberta; nunca é salva |
