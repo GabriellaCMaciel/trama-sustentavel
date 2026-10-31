@@ -1,4 +1,5 @@
 import type { Piece } from '../types'
+import type { BodyResult } from './body'
 import type { ContrastResult } from './contrast'
 
 const DB_NAME = 'trama-sustentavel'
@@ -7,6 +8,7 @@ const DB_VERSION = 2
 const PIECES = 'pieces'
 const PROFILE = 'profile'
 const CONTRAST_KEY = 'contrast'
+const BODY_KEY = 'body'
 
 type StoreName = typeof PIECES | typeof PROFILE
 
@@ -68,19 +70,27 @@ export function deletePiece(id: string): Promise<void> {
   })
 }
 
-export async function getContrastResult(): Promise<ContrastResult | null> {
-  const result = await read<ContrastResult | undefined>(PROFILE, (store) => store.get(CONTRAST_KEY))
-  return result ?? null
+async function getProfileItem<T>(key: string): Promise<T | null> {
+  const value = await read<T | undefined>(PROFILE, (store) => store.get(key))
+  return value ?? null
 }
 
-export function saveContrastResult(result: ContrastResult): Promise<void> {
+function saveProfileItem<T>(key: string, value: T): Promise<void> {
   return write(PROFILE, (store) => {
-    store.put(result, CONTRAST_KEY)
+    store.put(value, key)
   })
 }
 
-export function deleteContrastResult(): Promise<void> {
+function deleteProfileItem(key: string): Promise<void> {
   return write(PROFILE, (store) => {
-    store.delete(CONTRAST_KEY)
+    store.delete(key)
   })
 }
+
+export const getContrastResult = () => getProfileItem<ContrastResult>(CONTRAST_KEY)
+export const saveContrastResult = (result: ContrastResult) => saveProfileItem(CONTRAST_KEY, result)
+export const deleteContrastResult = () => deleteProfileItem(CONTRAST_KEY)
+
+export const getBodyResult = () => getProfileItem<BodyResult>(BODY_KEY)
+export const saveBodyResult = (result: BodyResult) => saveProfileItem(BODY_KEY, result)
+export const deleteBodyResult = () => deleteProfileItem(BODY_KEY)

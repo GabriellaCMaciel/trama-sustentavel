@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
-import { ContrastResultView } from '../components/ContrastResultView'
-import { FacePointPicker } from '../components/FacePointPicker'
-import { PhotoPicker } from '../components/PhotoPicker'
 import { useContrast } from '../hooks/useContrast'
 import { usePieces } from '../hooks/usePieces'
 import { buildResult } from '../lib/contrast'
 import type { ContrastLevel, FeatureKey } from '../lib/contrast'
 import { sectionTitle } from '../ui'
+import { ContrastResultView } from './ContrastResultView'
+import { FacePointPicker } from './FacePointPicker'
+import { PhotoPicker } from './PhotoPicker'
 
 const PHOTO_TIPS = [
   'Luz natural de frente, perto de uma janela. Evite luz amarela e flash.',
@@ -14,7 +14,7 @@ const PHOTO_TIPS = [
   'O cabelo precisa aparecer. Se for tingido, vale a cor atual.',
 ]
 
-export function ContrastPage() {
+export function ContrastTab() {
   const { result, loading, error, save, changeLevel, remove } = useContrast()
   const { pieces } = usePieces()
   const [redoing, setRedoing] = useState(false)
@@ -52,15 +52,10 @@ export function ContrastPage() {
 
   return (
     <>
-      <div className="mb-10">
-        <h1 className="text-[clamp(2.25rem,6vw,3.5rem)] font-extrabold tracking-[-0.03em] text-papaya-whip">
-          Meu contraste
-        </h1>
-        <p className="mt-3 max-w-[60ch] text-lg text-steel-blue-700">
-          Contraste é a diferença de claridade entre sua pele, seu cabelo e seus olhos. Ele ajuda a escolher
-          combinações de roupa que valorizam seu rosto.
-        </p>
-      </div>
+      <p className="mb-10 max-w-[60ch] text-lg text-steel-blue-700">
+        Contraste é a diferença de claridade entre sua pele, seu cabelo e seus olhos. Ele ajuda a escolher
+        combinações de roupa que valorizam seu rosto.
+      </p>
 
       {error && (
         <p className="mb-6 text-brick-red-800" role="alert">

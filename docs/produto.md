@@ -82,7 +82,12 @@ O site tem três páginas, com um menu fixo no topo.
 
 **2. Meu guarda-roupa:** cadastro, lista e remoção de peças.
 
-**3. Meu contraste:** a pessoa toca na pele, no cabelo e no olho da própria foto e descobre se o contraste é baixo, médio ou alto. Detalhes em [`docs/contraste.md`](contraste.md).
+**3. Meu perfil:** duas abas.
+
+- **Contraste:** a pessoa toca na pele, no cabelo e no olho da própria foto e descobre se o contraste é baixo, médio ou alto. Detalhes em [`docs/contraste.md`](contraste.md).
+- **Corpo:** a pessoa informa as medidas (ou escolhe uma silhueta) e descobre o formato do corpo e as modelagens que costumam valorizar. Detalhes em [`docs/corpo.md`](corpo.md).
+
+Endereços: `#/meu-perfil/contraste` e `#/meu-perfil/corpo`. O endereço antigo `#/meu-contraste` continua funcionando e abre a aba Contraste.
 
 Funcionalidades que ainda não existem aparecem como "Em breve" e nunca como se já funcionassem.
 

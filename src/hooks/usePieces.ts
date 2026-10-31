@@ -36,5 +36,10 @@ export function usePieces() {
     setPieces((current) => current.filter((piece) => piece.id !== id))
   }, [])
 
-  return { pieces, loading, error, addPiece, removePiece }
+  const updatePiece = useCallback(async (piece: Piece) => {
+    await savePiece(piece)
+    setPieces((current) => current.map((item) => (item.id === piece.id ? piece : item)))
+  }, [])
+
+  return { pieces, loading, error, addPiece, removePiece, updatePiece }
 }

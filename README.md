@@ -13,7 +13,7 @@ Detalhes de visão, escopo do MVP e decisões técnicas estão em [`docs/produto
 
 ## Status
 
-Em desenvolvimento. Já funcionam o cadastro de peças do guarda-roupa e a descoberta do contraste pessoal (detalhes em [`docs/contraste.md`](docs/contraste.md)).
+Em desenvolvimento. Já funcionam o cadastro de peças do guarda-roupa e, na página "Meu perfil", a descoberta do contraste pessoal ([`docs/contraste.md`](docs/contraste.md)) e do formato do corpo ([`docs/corpo.md`](docs/corpo.md)).
 
 ## Tecnologias
 

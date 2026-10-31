@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { prepareImage } from '../lib/image'
-import { CATEGORIES, OCCASIONS } from '../types'
-import type { Category, NewPiece, Occasion } from '../types'
+import { CATEGORIES, CLOTHING_CATEGORIES, FITS, OCCASIONS } from '../types'
+import type { Category, Fit, NewPiece, Occasion } from '../types'
 import { buttonPrimary, fieldLabel, input } from '../ui'
 import { PhotoPicker } from './PhotoPicker'
 
@@ -17,7 +17,9 @@ export function PieceForm({ onAdd }: PieceFormProps) {
   const [category, setCategory] = useState<Category>('top')
   const [color, setColor] = useState('#1a1a1a')
   const [occasions, setOccasions] = useState<Occasion[]>(['casual'])
+  const [fit, setFit] = useState<Fit | ''>('')
   const [file, setFile] = useState<File | null>(null)
+  const isClothing = CLOTHING_CATEGORIES.has(category)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const fileInput = useRef<HTMLInputElement>(null)
@@ -33,6 +35,7 @@ export function PieceForm({ onAdd }: PieceFormProps) {
     setCategory('top')
     setColor('#1a1a1a')
     setOccasions(['casual'])
+    setFit('')
     setFile(null)
     if (fileInput.current) fileInput.current.value = ''
   }
@@ -54,7 +57,15 @@ export function PieceForm({ onAdd }: PieceFormProps) {
     setBusy(true)
     try {
       const photo = await prepareImage(file)
-      await onAdd({ name: trimmedName, category, color, occasions, photo })
+      await onAdd({
+        name: trimmedName,
+        category,
+        color,
+        occasions,
+        // Modelagem só vale para roupas e é opcional.
+        ...(isClothing && fit ? { fit } : {}),
+        photo,
+      })
       reset()
     } catch {
       setError('Não foi possível salvar a peça. Tente com outra foto.')
@@ -125,6 +136,27 @@ export function PieceForm({ onAdd }: PieceFormProps) {
           </span>
         </div>
       </div>
+
+      {isClothing && (
+        <div className={field}>
+          <label className={fieldLabel} htmlFor="piece-fit">
+            Modelagem (opcional)
+          </label>
+          <select
+            id="piece-fit"
+            className={`${input} select-chevron cursor-pointer pr-10`}
+            value={fit}
+            onChange={(event) => setFit(event.target.value as Fit | '')}
+          >
+            <option value="">Não sei ou prefiro não dizer</option>
+            {FITS.map((item) => (
+              <option key={item.value} value={item.value}>
+                {item.label}: {item.hint.charAt(0).toLowerCase() + item.hint.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <fieldset className={field}>
         <legend className={`${fieldLabel} mb-2`}>Ocasiões</legend>

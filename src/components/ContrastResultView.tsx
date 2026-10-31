@@ -210,7 +210,7 @@ function WardrobeMatches({ pieces, level }: { pieces: Piece[]; level: ContrastLe
   )
 }
 
-function PieceThumb({ piece }: { piece: Piece }) {
+export function PieceThumb({ piece }: { piece: Piece }) {
   const url = useObjectUrl(piece.photo)
   return (
     <div className="relative aspect-square flex-1 overflow-hidden rounded-lg bg-deep-space-blue-300">
