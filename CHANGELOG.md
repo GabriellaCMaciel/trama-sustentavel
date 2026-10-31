@@ -7,6 +7,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Funcionalidades
 
+- Swing home page sample tags on hover like real hanging tags ([1447ab8](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1447ab86f76c1fca5e7d19613b70996ce24f2efb))
 - Add home page explaining the product and site navigation ([9eeb54a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/9eeb54a5168321fdcf74b50306efc2e0c076f8a7))
 - Redesign wardrobe page with clothing-tag cards ([473af3a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/473af3ad78bc172ce57ff7f2861f036d9f695b32))
 - Add wardrobe piece registration with local storage ([222379a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/222379a30b93a42301cee25ea218e8889cea9f38))
