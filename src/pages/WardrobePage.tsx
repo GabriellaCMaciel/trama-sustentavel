@@ -4,6 +4,7 @@ import { PieceCard } from '../components/PieceCard'
 import { PieceForm } from '../components/PieceForm'
 import { usePieces } from '../hooks/usePieces'
 import type { NewPiece } from '../types'
+import { sectionTitle } from '../ui'
 
 export function WardrobePage() {
   const { pieces, loading, error, addPiece, removePiece } = usePieces()
@@ -34,35 +35,54 @@ export function WardrobePage() {
 
   return (
     <>
-      <div className="page-intro">
-        <h1>Meu guarda-roupa</h1>
-        <p>Cadastre as peças que você tem. Elas serão a base dos seus looks e da sua cápsula.</p>
+      <div className="mb-10">
+        <h1 className="text-[clamp(2.25rem,6vw,3.5rem)] font-extrabold tracking-[-0.03em] text-papaya-whip">
+          Meu guarda-roupa
+        </h1>
+        <p className="mt-3 max-w-[52ch] text-lg text-steel-blue-700">
+          Cadastre as peças que você tem. Elas serão a base dos seus looks e da sua cápsula.
+        </p>
       </div>
 
-      <div className="layout">
-        <section className="panel" aria-labelledby="add-title">
-          <h2 id="add-title">Adicionar peça</h2>
+      <div className="grid items-start gap-12 min-[880px]:grid-cols-[380px_1fr]">
+        <section
+          className="rounded-2xl border border-steel-blue-300 bg-deep-space-blue p-6 min-[880px]:sticky min-[880px]:top-22"
+          aria-labelledby="add-title"
+        >
+          <h2 id="add-title" className={`${sectionTitle} mb-5`}>
+            Adicionar peça
+          </h2>
           <PieceForm onAdd={handleAdd} />
         </section>
 
-        <section className="closet" aria-labelledby="closet-title">
-          <div className="closet-heading">
-            <h2 id="closet-title">Minhas peças</h2>
-            <span className="count">{pieces.length === 1 ? '1 peça' : `${pieces.length} peças`}</span>
+        <section aria-labelledby="closet-title">
+          <div className="mb-6 flex items-baseline gap-3">
+            <h2 id="closet-title" className={sectionTitle}>
+              Minhas peças
+            </h2>
+            <span className="text-steel-blue-700">{pieces.length === 1 ? '1 peça' : `${pieces.length} peças`}</span>
           </div>
 
-          {error && <p className="form-error" role="alert">{error}</p>}
-          {removeError && <p className="form-error" role="alert">{removeError}</p>}
+          {error && (
+            <p className="text-brick-red-800" role="alert">
+              {error}
+            </p>
+          )}
+          {removeError && (
+            <p className="text-brick-red-800" role="alert">
+              {removeError}
+            </p>
+          )}
 
           {loading ? (
-            <p className="muted">Carregando…</p>
+            <p className="text-steel-blue-700">Carregando…</p>
           ) : pieces.length === 0 ? (
-            <div className="empty">
-              <HangerIcon className="empty-icon" />
-              <p>Seu guarda-roupa está vazio. Adicione a primeira peça no formulário.</p>
+            <div className="grid justify-items-center gap-3 rounded-2xl border-[1.5px] border-dashed border-steel-blue-300 px-6 py-14 text-center text-steel-blue-700">
+              <HangerIcon className="w-18 text-steel-blue-400" />
+              <p className="max-w-[32ch]">Seu guarda-roupa está vazio. Adicione a primeira peça no formulário.</p>
             </div>
           ) : (
-            <div className="piece-grid">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-x-5 gap-y-7 min-[880px]:grid-cols-[repeat(auto-fill,minmax(190px,1fr))]">
               {pieces.map((piece) => (
                 <PieceCard
                   key={piece.id}
@@ -76,8 +96,16 @@ export function WardrobePage() {
         </section>
       </div>
 
-      <div className="toast-region" role="status" aria-live="polite">
-        {notice && <p className="toast">{notice}</p>}
+      <div
+        className="pointer-events-none fixed inset-x-4 bottom-5 flex justify-center"
+        role="status"
+        aria-live="polite"
+      >
+        {notice && (
+          <p className="max-w-[420px] animate-toast-in rounded-[10px] border-l-4 border-brick-red bg-papaya-whip px-4.5 py-3 text-deep-space-blue-200 shadow-[0_10px_30px_rgb(0_19_29/0.7)]">
+            {notice}
+          </p>
+        )}
       </div>
     </>
   )

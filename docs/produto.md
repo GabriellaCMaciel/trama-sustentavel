@@ -45,27 +45,26 @@ Fica para depois:
 | Linguagem | TypeScript | Ajuda a modelar peça, look e perfil e pega erros antes de rodar |
 | Dados | Só no navegador (IndexedDB) | Sem servidor e sem conta; as fotos ficam no aparelho, o que combina com a privacidade |
 | Primeira funcionalidade | Cadastro de peças | O armário é a base de looks, cápsula e lista de compras |
+| Estilos | Tailwind CSS v4 | Escolha da autora do projeto; as cores da paleta viram classes como `bg-brick-red` e `text-papaya-whip` |
+| Changelog | git-cliff + GitHub Actions | O `CHANGELOG.md` é gerado a partir dos commits e atualizado sozinho a cada push na `main` |
 
 ## Identidade visual
 
-Tema escuro que combina duas paletas de referência. Os contrastes de texto foram calculados e ficam acima de 4,5:1.
+Tema escuro com a paleta abaixo, definida no `@theme` do Tailwind (`src/index.css`). Só essas cores existem no projeto: as cores padrão do Tailwind foram desligadas. Cada cor tem tons de 100 (mais escuro) a 900 (mais claro); o nome sem número é o tom 500.
 
-| Cor | Código | Paleta | Uso no site |
+| Cor | Classe no Tailwind | Código base | Uso no site |
 | --- | --- | --- | --- |
-| Blush Ivory | `#F6E7E0` | 1 | Texto principal |
-| Rose Clay | `#C87B7E` | 1 | Base do tom de "Remover" e das mensagens de erro |
-| Dusty Mauve | `#7A4D8C` | 1 | Bordas |
-| Plum Wine | `#4B1F3A` | 1 | Painéis e cartões |
-| Twilight Blue | `#2F3E5B` | 1 | Etiquetas de ocasião |
-| Champagne | `#F2E4D0` | 2 | Texto das etiquetas |
-| Antique Gold | `#C6A15B` | 2 | Título, botão principal e caixas de seleção |
-| Burgundy | `#6E1734` | 2 | Ainda sem uso; reservada para destaques |
-| Wine | `#8F2948` | 2 | Ainda sem uso; reservada para destaques |
-| Espresso | `#2A1018` | 2 | Fundo da página e campos |
+| Deep Space Blue | `deep-space-blue` | `#003049` | Fundo da página (tom 200), painéis e cartões (tom base) |
+| Papaya Whip | `papaya-whip` | `#FDF0D5` | Texto principal, etiquetas das peças e menu ativo |
+| Steel Blue | `steel-blue` | `#669BBC` | Texto secundário (tom 700), bordas (tons 300 e 400), ocasião escolhida e etiquetas de ocasião (tom 300) |
+| Brick Red | `brick-red` | `#C1121F` | Botão principal, números dos passos, arara, cabide e mensagens de erro (tom 800) |
+| Molten Lava | `molten-lava` | `#780000` | Faixa de privacidade da página inicial |
+
+Contrastes calculados: texto principal 16,7:1 no fundo; texto secundário acima de 7:1; texto do botão principal 5,5:1; bordas de campos acima de 3:1.
 
 **Tipografia:** somente fontes sem serifa. Urbanist nos títulos e Instrument Sans no texto. As duas fontes são instaladas pelo npm e servidas junto com o site, sem depender do Google Fonts.
 
-**Elemento marcante:** cada peça aparece como uma etiqueta de roupa clara, com furo e contorno dourado. Quando uma peça é adicionada, a etiqueta entra com um leve balanço; o movimento é desligado para quem configurou o sistema para reduzir animações.
+**Elemento marcante:** cada peça aparece como uma etiqueta de roupa clara, com furo e contorno vermelho. Quando uma peça é adicionada, a etiqueta entra com um leve balanço; o movimento é desligado para quem configurou o sistema para reduzir animações.
 
 ## Estrutura do site
 
