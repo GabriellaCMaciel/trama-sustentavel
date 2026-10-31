@@ -58,9 +58,10 @@ Quando a etapa 2 ou a 3 não foi feita, o site avisa que os looks ficam mais per
 ## Lista de compras
 
 1. O site testa peças imaginárias simples: parte de cima, parte de baixo e calçado, em três tons neutros (off-white, cinza médio e preto) e, para roupas, na modelagem que mais valoriza o formato da pessoa (ou reta, se a etapa 3 não foi feita).
-2. Para cada uma, conta quantos looks bons **novos** ela criaria com o guarda-roupa atual.
-3. Mostra as 3 que mais criam looks, com o número de looks novos. Peças que não criam nenhum look não aparecem.
-4. Antes da lista, o lembrete: procure primeiro em brechó, em trocas com amigos ou veja se uma peça parada resolve com um conserto.
+2. Não testa uma cópia do que a pessoa já tem: se já existe uma peça da mesma categoria, de cor neutra e com claridade parecida (diferença de L\* menor que 12), aquele tom fica de fora.
+3. Para cada uma, conta quantos looks bons **novos** ela criaria com o guarda-roupa atual.
+4. Fica com o melhor tom de cada categoria (no máximo uma sugestão por categoria, para a lista não repetir a mesma peça em tons diferentes) e mostra até 3, das que mais criam looks, com o número de looks novos. Peças que não criam nenhum look não aparecem.
+5. Antes da lista, o lembrete: procure primeiro em brechó, em trocas com amigos ou veja se uma peça parada resolve com um conserto.
 
 ## Fora desta etapa
 

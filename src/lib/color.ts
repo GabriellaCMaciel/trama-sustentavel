@@ -36,6 +36,26 @@ export function lightness(hex: string): number {
   return lightnessOfRgb(hexToRgb(hex))
 }
 
+/** Croma C* do CIELAB: quanto a cor é intensa (0 = cinza). */
+export function chroma(hex: string): number {
+  const { r, g, b } = hexToRgb(hex)
+  const [lr, lg, lb] = [toLinear(r), toLinear(g), toLinear(b)]
+  const x = (0.4124 * lr + 0.3576 * lg + 0.1805 * lb) / 0.95047
+  const y = 0.2126 * lr + 0.7152 * lg + 0.0722 * lb
+  const z = (0.0193 * lr + 0.1192 * lg + 0.9505 * lb) / 1.08883
+  const f = (t: number) => (t > 216 / 24389 ? Math.cbrt(t) : ((24389 / 27) * t + 16) / 116)
+  const a = 500 * (f(x) - f(y))
+  const bb = 200 * (f(y) - f(z))
+  return Math.hypot(a, bb)
+}
+
+/** Limite de croma abaixo do qual a cor conta como neutra (docs/looks.md). */
+export const NEUTRAL_CHROMA = 26
+
+export function isNeutral(hex: string): boolean {
+  return chroma(hex) < NEUTRAL_CHROMA
+}
+
 export type ValueLabel = 'clara' | 'média' | 'escura'
 
 /** Classifica a claridade de uma peça pela cor principal. */

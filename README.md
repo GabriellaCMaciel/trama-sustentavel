@@ -13,7 +13,7 @@ Detalhes de visão, escopo do MVP e decisões técnicas estão em [`docs/produto
 
 ## Status
 
-Em desenvolvimento. Já funcionam o cadastro de peças do guarda-roupa e, na página "Meu perfil", a descoberta do contraste pessoal ([`docs/contraste.md`](docs/contraste.md)) e do formato do corpo ([`docs/corpo.md`](docs/corpo.md)).
+Em desenvolvimento. As quatro etapas do MVP já funcionam: cadastro de peças do guarda-roupa; na página "Meu perfil", a descoberta do contraste pessoal ([`docs/contraste.md`](docs/contraste.md)) e do formato do corpo ([`docs/corpo.md`](docs/corpo.md)); e, na página "Looks", os looks com o que a pessoa já tem, a cápsula, as peças paradas e as sugestões de compra ([`docs/looks.md`](docs/looks.md)).
 
 ## Tecnologias
 
