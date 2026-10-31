@@ -7,6 +7,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Funcionalidades
 
+- Add body shape step and profile page with contrast and body tabs ([1b361b9](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1b361b98feaf3e5259f300884a73695d30f8562e))
 - Add contrast analysis page from a face photo ([20c4a5e](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/20c4a5e281258755c07445bfcb8c65fe592dc331))
 - Swing home page sample tags on hover like real hanging tags ([1447ab8](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1447ab86f76c1fca5e7d19613b70996ce24f2efb))
 - Add home page explaining the product and site navigation ([9eeb54a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/9eeb54a5168321fdcf74b50306efc2e0c076f8a7))
@@ -21,6 +22,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Documentação
 
+- Specify the body shape step and the profile page ([73f7802](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/73f78029c6f6e4bdb3d0119f8206cf350c1d2015))
 - Specify the contrast analysis step ([84eed22](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/84eed22be986d1ec21e9e25925791242b8038c8e))
 - Add README, product vision, MVP scope and technical decisions ([ad0443c](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/ad0443c69488ffd39ea041dd1687d450bf03ccb3))
 
