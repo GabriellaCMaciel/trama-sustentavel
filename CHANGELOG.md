@@ -7,6 +7,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Funcionalidades
 
+- Add sample wardrobe with illustrated clothing pieces ([ef0be34](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/ef0be34a88450421f2f81c818ae0fba489ec215b))
 - Add looks page with outfit generator, capsule and shopping suggestions ([0dfb735](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/0dfb735431ea3d8f34a58c996e6aaabdfefa2248))
 - Add body shape step and profile page with contrast and body tabs ([1b361b9](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1b361b98feaf3e5259f300884a73695d30f8562e))
 - Add contrast analysis page from a face photo ([20c4a5e](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/20c4a5e281258755c07445bfcb8c65fe592dc331))
@@ -23,6 +24,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Documentação
 
+- Specify the sample wardrobe with illustrated pieces ([b94b9c7](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/b94b9c70656c3825b6d9a86d7641e9b6f0071ccb))
 - Specify the looks and capsule step ([07b058a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/07b058a947165c9e3564d8f7fc9fc899c88e5f7c))
 - Specify the body shape step and the profile page ([73f7802](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/73f78029c6f6e4bdb3d0119f8206cf350c1d2015))
 - Specify the contrast analysis step ([84eed22](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/84eed22be986d1ec21e9e25925791242b8038c8e))
