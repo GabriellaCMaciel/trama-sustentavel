@@ -6,10 +6,10 @@ interface SiteHeaderProps {
   route: Route
 }
 
-const LINKS: { route: Route; label: string }[] = [
-  { route: 'inicio', label: 'Início' },
-  { route: 'guarda-roupa', label: 'Meu guarda-roupa' },
-  { route: 'contraste', label: 'Meu contraste' },
+const LINKS: { href: string; label: string; isActive: (route: Route) => boolean }[] = [
+  { href: routeHref.inicio, label: 'Início', isActive: (route) => route === 'inicio' },
+  { href: routeHref['guarda-roupa'], label: 'Meu guarda-roupa', isActive: (route) => route === 'guarda-roupa' },
+  { href: routeHref['perfil-contraste'], label: 'Meu perfil', isActive: (route) => route.startsWith('perfil') },
 ]
 
 export function SiteHeader({ route }: SiteHeaderProps) {
@@ -26,16 +26,16 @@ export function SiteHeader({ route }: SiteHeaderProps) {
         <nav aria-label="Principal">
           <ul className="flex gap-0.5 min-[480px]:gap-1">
             {LINKS.map((link) => {
-              const active = route === link.route
+              const active = link.isActive(route)
               return (
-                <li key={link.route}>
+                <li key={link.href}>
                   <a
-                    className={`inline-block rounded-full px-2 py-1.5 text-sm font-medium min-[360px]:px-2.5 min-[360px]:text-[0.9375rem] whitespace-nowrap no-underline transition-colors min-[480px]:px-3.5 min-[480px]:py-2 min-[480px]:text-base ${
+                    className={`inline-block rounded-full px-2 py-1.5 text-sm font-medium whitespace-nowrap no-underline transition-colors min-[360px]:px-2.5 min-[360px]:text-[0.9375rem] min-[480px]:px-3.5 min-[480px]:py-2 min-[480px]:text-base ${
                       active
                         ? 'bg-papaya-whip text-deep-space-blue-200'
                         : 'text-steel-blue-700 hover:text-papaya-whip'
                     }`}
-                    href={routeHref[link.route]}
+                    href={link.href}
                     aria-current={active ? 'page' : undefined}
                   >
                     {link.label}

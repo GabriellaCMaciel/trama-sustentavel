@@ -1,5 +1,5 @@
 import { useObjectUrl } from '../hooks/useObjectUrl'
-import { categoryLabel, occasionLabel } from '../types'
+import { categoryLabel, fitLabel, occasionLabel } from '../types'
 import type { Piece } from '../types'
 import { CloseIcon } from './Icons'
 
@@ -46,7 +46,10 @@ export function PieceCard({ piece, isNew, onRemove }: PieceCardProps) {
             style={{ backgroundColor: piece.color }}
             aria-hidden="true"
           />
-          {categoryLabel(piece.category)}
+          <span>
+            {categoryLabel(piece.category)}
+            {piece.fit && `, ${fitLabel(piece.fit).toLowerCase()}`}
+          </span>
         </p>
         {piece.occasions.length > 0 && (
           <ul className="mt-1 flex flex-wrap gap-1">

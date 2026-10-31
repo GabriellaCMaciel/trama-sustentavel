@@ -17,7 +17,7 @@ const STEPS = [
   {
     title: 'Entenda o formato do seu corpo',
     text: 'Um guia com medidas simples mostra seu formato e os cortes que costumam favorecer.',
-    available: false,
+    available: true,
   },
   {
     title: 'Receba looks e sua cápsula',

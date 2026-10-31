@@ -1,10 +1,22 @@
 import { useEffect, useState } from 'react'
 
-export type Route = 'inicio' | 'guarda-roupa' | 'contraste'
+export type Route = 'inicio' | 'guarda-roupa' | 'perfil-contraste' | 'perfil-corpo'
+
+export const routeHref: Record<Route, string> = {
+  inicio: '#/',
+  'guarda-roupa': '#/guarda-roupa',
+  'perfil-contraste': '#/meu-perfil/contraste',
+  'perfil-corpo': '#/meu-perfil/corpo',
+}
 
 function readRoute(): Route {
-  if (window.location.hash === '#/guarda-roupa') return 'guarda-roupa'
-  if (window.location.hash === '#/meu-contraste') return 'contraste'
+  const hash = window.location.hash
+  if (hash === routeHref['guarda-roupa']) return 'guarda-roupa'
+  if (hash === routeHref['perfil-corpo']) return 'perfil-corpo'
+  // "#/meu-perfil" sem aba e o endereço antigo "#/meu-contraste" abrem a aba Contraste.
+  if (hash === routeHref['perfil-contraste'] || hash === '#/meu-perfil' || hash === '#/meu-contraste') {
+    return 'perfil-contraste'
+  }
   return 'inicio'
 }
 
@@ -17,18 +29,17 @@ export function useHashRoute(): Route {
 
   useEffect(() => {
     function handleChange() {
-      setRoute(readRoute())
-      window.scrollTo({ top: 0 })
+      const next = readRoute()
+      setRoute((previous) => {
+        // Trocar de aba dentro do perfil não leva a página para o topo.
+        const sameProfile = previous.startsWith('perfil') && next.startsWith('perfil')
+        if (!sameProfile) window.scrollTo({ top: 0 })
+        return next
+      })
     }
     window.addEventListener('hashchange', handleChange)
     return () => window.removeEventListener('hashchange', handleChange)
   }, [])
 
   return route
-}
-
-export const routeHref: Record<Route, string> = {
-  inicio: '#/',
-  'guarda-roupa': '#/guarda-roupa',
-  contraste: '#/meu-contraste',
 }
