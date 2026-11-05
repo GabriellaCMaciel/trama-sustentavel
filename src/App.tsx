@@ -1,3 +1,4 @@
+import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
 import { useHashRoute } from './hooks/useHashRoute'
 import { HomePage } from './pages/HomePage'
@@ -17,9 +18,7 @@ export default function App() {
         {(route === 'looks' || route === 'looks-capsula') && <LooksPage route={route} />}
         {route === 'inicio' && <HomePage />}
       </main>
-      <footer className="border-t border-steel-blue-300 px-4 pt-6 pb-10 text-center text-sm text-steel-blue-700">
-        <p>Trama Sustentável é um projeto em desenvolvimento.</p>
-      </footer>
+      <SiteFooter aviso="Trama Sustentável é um projeto em desenvolvimento." autor="Gabriella Swarttz" autorUrl="https://github.com/GabriellaCMaciel" />
     </>
   )
 }
