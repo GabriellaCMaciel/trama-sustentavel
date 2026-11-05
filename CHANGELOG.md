@@ -7,6 +7,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Funcionalidades
 
+- Extract reusable SiteFooter component with author prop ([1dc4b1d](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1dc4b1d8c282cb2774b105ec144124cda4184611))
 - Add sample wardrobe with illustrated clothing pieces ([ef0be34](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/ef0be34a88450421f2f81c818ae0fba489ec215b))
 - Add looks page with outfit generator, capsule and shopping suggestions ([0dfb735](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/0dfb735431ea3d8f34a58c996e6aaabdfefa2248))
 - Add body shape step and profile page with contrast and body tabs ([1b361b9](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/1b361b98feaf3e5259f300884a73695d30f8562e))
