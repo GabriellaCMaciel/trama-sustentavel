@@ -25,6 +25,7 @@ As mensagens seguem o padrão Conventional Commits (feat, fix, style, docs, chor
 
 ### Documentação
 
+- Link the live site at the top of the README ([3d3d78a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/3d3d78aa30f28b8b3b6a61d5c6b18d111e360589))
 - Specify the sample wardrobe with illustrated pieces ([b94b9c7](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/b94b9c70656c3825b6d9a86d7641e9b6f0071ccb))
 - Specify the looks and capsule step ([07b058a](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/07b058a947165c9e3564d8f7fc9fc899c88e5f7c))
 - Specify the body shape step and the profile page ([73f7802](https://github.com/GabriellaCMaciel/trama-sustentavel/commit/73f78029c6f6e4bdb3d0119f8206cf350c1d2015))
